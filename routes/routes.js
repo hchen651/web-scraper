@@ -6,6 +6,11 @@ const db = require("../models")
 
 // Routes
 module.exports = function(app) {
+
+  app.get("/", function(req, res) {
+    res.render("home", { title: "Home" });
+  });
+
   app.get("/scrape", function(req, res) {
     axios.get("http://www.kotaku.com/").then(function(response) {
       var $ = cheerio.load(response.data);
@@ -30,8 +35,11 @@ module.exports = function(app) {
   app.get("/articles", function(req, res) {
     db.Article.find({})
       .then(function(dbArticle) {
-        //res.json(dbArticle);
-        res.render('home', {articles: dbArticle});
+        var object = {
+          articles: dbArticle,
+          title: "All Articles"
+      }
+      res.render('home', object);
       })
       .catch(function(err) {
         res.json(err);
