@@ -6,10 +6,6 @@ var SavedSchema = new Schema({
   articleID: {
     type: Schema.Types.ObjectId,
     ref: "Article"
-  },
-  note: {
-    type: Schema.Types.ObjectId,
-    ref: "Note"
   }
 });
 
