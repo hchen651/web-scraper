@@ -69,7 +69,7 @@ module.exports = function (app) {
       result.summary = doc.summary;
       db.Saved.create(result)
         .then(function () {
-          res.redirect("/saved");
+          res.redirect("/");
         })
         .catch(function (err) {
           console.log(err);
@@ -80,7 +80,7 @@ module.exports = function (app) {
   app.delete("/saved", function (req, res) {
     db.Saved.remove({ _id: req.body.id })
       .then(function () {
-        res.redirect("/saved");
+        res.redirect("/");
       })
       .catch(function (err) {
         console.log(err);
