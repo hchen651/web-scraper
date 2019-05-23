@@ -1,0 +1,21 @@
+<h2>Saved Articles:</h2>
+
+<div id="articles" class="col-9"></div>
+
+{{#savedarticles}}
+
+<div class="card" style="width: 90%;">
+    <div class="card-body">
+        <h5 class="card-title">{{title}}'</h5>
+        <p class="card-text">{{summary}}</p>
+        <hr>
+        <p><strong>Notes:</strong></p>
+        <p class="card-text">{{note}}</p>
+        <hr>
+        <a href="{{link}}" class="btn btn-primary">Go to Article</a> 
+        <button type="button" class="btn btn-success" data-id="{{_id}}">Add/Edit Notes</button>
+    </div>
+</div>
+
+{{/savedarticles}}
+
