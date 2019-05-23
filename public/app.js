@@ -1,15 +1,3 @@
-// // Grab the articles as a json
-// $.getJSON("/articles", function (data) {
-//   // For each one
-//   for (var i = 0; i < data.length; i++) {
-//     // Display the apropos information on the page
-//     //$("#articles").append('<div class="card" style="width: 90%;"><div class="card-body"><h5 class="card-title">' + data[i].title + '</h5><p class="card-text">' + data[i].summary + '</p><a href="' + data[i].link + '" class="btn btn-primary">Go to Article</a> <button type="button" class="btn btn-success">Save Article</button></div>');
-//     var articleCard = $('<div class="card" style="width: 90%;"><div class="card-body"><h5 class="card-title">' + data[i].title + '</h5><p class="card-text">' + data[i].summary + '</p><a href="' + data[i].link + '" class="btn btn-primary">Go to Article</a> <button type="button" class="btn btn-success" data-id="' + data[i]._id + '">Save Article</button></div>');
-//     $("#articles").append(articleCard);
-//   }
-// });
-
-
 // // // Whenever someone clicks a p tag
 // // $(document).on("click", "p", function() {
 // //   // Empty the notes from the note section
@@ -44,23 +32,50 @@
 // //     });
 // // });
 
-$(document).on("click", ".save-article", function() {
-  // Grab the id associated with the article from the submit button
+$(document).on("click", ".save-article", function () {
   var thisId = $(this).attr("data-id");
-
-  // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
     method: "POST",
     url: "/saved/",
-    data: {
+    data:
+    {
       id: thisId
     }
   })
-    // With that done
-    .then(function(data) {
-      // Log the response
-      console.log("jsd"+data);
+    .then(function (data) {
+      console.log(data);
     });
+});
+
+$(document).on("click", ".delete-article", function () {
+  var thisId = $(this).attr("data-id");
+  $.ajax({
+    method: "DELETE",
+    url: "/saved/",
+    data:
+    {
+      id: thisId
+    }
+  })
+    .then(function (data) {
+      console.log(data);
+    });
+});
+
+$(document).on("click", ".edit-note", function() {
+  var thisId = $(this).attr("data-id");
+  $('#editModal').modal('show');
+  // $.ajax({
+  //   method: "POST",
+  //   url: "/saved/",
+  //   data: 
+  //   {
+  //     id: thisId
+  //   }
+  // })
+  //   .then(function(data) {
+  //     console.log(data);
+  //   });
 });
 
 

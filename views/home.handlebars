@@ -1,21 +1,16 @@
-<a href="/clear" class="btn btn-secondary">Clear Scraped Articles</a>
-
-<h2>Scraped Articles:</h2>
-
-<div id="articles" class="col-9"></div>
-
-{{#articles}}
-
-<div class="card" style="width: 90%;">
-    <div class="card-body">
-        <h5 class="card-title">{{title}}'</h5>
-        <p class="card-text">{{summary}}</p>
-        <a href="{{link}}" class="btn btn-primary">Go to Article</a> 
-        <button type="button" class="btn btn-success save-article" data-id="{{_id}}">Save Article</button>
+<div id="articles" class="container">
+    <a href="/clear" class="btn btn-secondary">Clear Scraped Articles</a>
+    <br>
+    <br>
+    <h2>Scraped Articles:</h2>
+    {{#articles}}
+    <div class="card" style="width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}'</h5>
+            <p class="card-text">{{summary}}</p>
+            <a href="{{link}}" class="btn btn-primary">Go to Article</a>
+            <button type="button" class="btn btn-success save-article" data-id="{{_id}}">Save Article</button>
+        </div>
     </div>
+    {{/articles}}
 </div>
-
-{{/articles}}
-
-
-
