@@ -1,5 +1,6 @@
 <h1>Kotaku Scraper</h1>
 <p>
+    <a href="/" class="btn btn-info">Home</a>
     <a href="/scrape" class="btn btn-danger">Scrape</a>
     <a href="/saved" class="btn btn-warning">Saved Articles</a>
 </p>
@@ -7,17 +8,14 @@
 <div id="articles" class="col-9"></div>
 
 {{#articles}}
-
 <div class="card" style="width: 90%;">
     <div class="card-body">
         <h5 class="card-title">{{title}}'</h5>
         <p class="card-text">{{summary}}</p>
-        <a href="{{link}}" class="btn btn-primary">Go to Article</a> 
+        <a href="{{link}}" class="btn btn-primary">Go to Article</a>
         <button type="button" class="btn btn-success" data-id="{{_id}}">Save Article</button>
     </div>
 </div>
-
 {{/articles}}
+
 <div id="notes"></div>
-
-
